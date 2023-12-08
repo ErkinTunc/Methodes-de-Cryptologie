@@ -1,0 +1,125 @@
+\documentclass{article}
+\usepackage[french]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\title{Mathématiques à l'Usage des Informaticiens}
+\author{Erkin Tunç Boya}
+\date{Décembre 2023}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+\section{Méthodes de Cryptologie}
+
+\subsection{Code Inverse}
+Il s'agit de crypter un message en inversant son écriture. Le décrypter revient au même. Un seul programme sera utilisé en considérant qu'on est en mode cryptage ou décryptage.
+
+\subsubsection{Les fonctions}
+\begin{itemize}
+    \item \texttt{crypter(message)}
+    \item \texttt{decrypter\_crypt(message)}
+\end{itemize}
+
+\subsection{Code César Simple}
+Pour crypter, on décale chaque lettre de \(b\) indices où \(b\) est la clé de chiffrement. Crypter le message \(x\) avec la clé \(b\) sur un alphabet de taille \(n\) : \(y \equiv x + b \mod n\), où \(y\) est le message obtenu.
+
+Décrypter le message \(x\) avec la clé \(b\) sur un alphabet de taille \(n\) : \(y \equiv x - b \mod n\), où \(y\) est le message obtenu.
+
+La clé \(b\) est un nombre entier et une variable indique en quel mode agit (cryptage ou décryptage).
+
+\subsubsection{Les fonctions}
+\begin{itemize}
+    \item \texttt{decalage\_mot(mot, k)}
+    \item \texttt{decryptage\_decalage\_mot(mot, k)}
+\end{itemize}
+
+\subsection{Code de Vigenère}
+Ce code permet de crypter le message. Le décalage change de lettre en lettre grâce à une clé. Pour chiffrer un message, on décale chaque lettre du message par le même décalage qui fait passer la lettre "a" à la lettre correspondante de la clé écrite sous le message (et répétée autant de fois que nécessaire).
+
+\begin{enumerate}
+    \item L'alphabet peut changer (mais si tu changes, n'oublie pas de modifier de fonctions (Cryptage/Décryptage Vigenere)).
+    \item Si une lettre du message n'est pas dans l'alphabet, le code la laisse inchangée.
+\end{enumerate}
+
+\subsubsection{Les fonctions}
+\begin{itemize}
+    \item \texttt{creationDic(liste\_biblio)}
+    \item \texttt{liste\_decalage(message, cle, bibliotheque)}
+    \item \texttt{Cryptage\_Vigenere(message, cle)}
+    \item \texttt{Decryptage\_Vigenere(message\_crypte, cle)}
+\end{itemize}
+
+\leavevmode
+\newline
+
+Les fonctions utilisent comme ci-dessous:
+
+\begin{itemize}
+    \item \texttt{Cryptage\_Vigenere(message, cle)}
+        \begin{itemize}
+        \item \texttt{creationDic(li\_biblio)}
+        \item \texttt{liste\_decalage(message, cle, bibliotheque)}
+        \end{itemize}                    
+    \item \texttt{Decryptage\_Vigenere(message\_crypte, cle)}
+        \begin{itemize}
+        \item \texttt{creationDic(li\_biblio)}
+        \item \texttt{liste\_decalage(message, cle, bibliotheque)}
+        \end{itemize}                
+\end{itemize}
+
+\subsection{Code César Affine}
+Crypter le message \(x\) avec les clés \(a\) et \(b\) sur un alphabet de taille \(n\) : \(y \equiv ax + b \mod n\), où \(y\) est le message obtenu.
+
+Décrypter le message \(x\) avec les clés \(a'\) et \(b'\) : \(y \equiv a'x + b' \mod n\), où \(y\) est le message obtenu.
+
+\begin{enumerate}
+    \item Les clés \(a\) et \(b\) sont des nombres entiers.
+    \item Les fonctions rendent toutes les lettres en minuscules parce que l'alphabet contient seulement des lettres minuscules (Modifie et agrandit l'alphabet pour le majuscule).
+\end{enumerate}
+
+\subsubsection{Les fonctions}
+\begin{itemize}
+    \item \texttt{pgcd(a, b)}
+    \item \texttt{creationDic(liste\_biblio)}
+    \item \texttt{Cryptage\_CesarAffine(message, cle\_a, cle\_b)}
+    \item \texttt{Decryptage\_CesarAffine(message\_crypte, cle\_a, cle\_b)}
+\end{itemize}
+
+\leavevmode
+\newline
+
+Les fonctions utilisent comme ci-dessous:
+
+\begin{itemize}
+    \item \texttt{Cryptage\_CesarAffine(message, cle\_a, cle\_b)}
+        \begin{itemize}
+        \item \texttt{pgcd(a, b)}
+        \item \texttt{creationDic(liste\_biblio)}
+        \end{itemize}                    
+    \item \texttt{Decryptage\_CesarAffine(message\_crypte, cle\_a, cle\_b)}
+        \begin{itemize}
+        \item \texttt{pgcd(a, b)}
+        \item \texttt{creationDic(liste\_biblio)}
+        \end{itemize}                
+\end{itemize}
+\newpage
+
+\section{Jeux D'essais}
+\subsection{Exemple 1}
+Le message est "Si deux hommes ont la même opinion. L’un d’eux est de trop." \\
+K = 3 \\
+CLE = "hope" \\
+\subsection{Exemple 2}
+Le message est "Chez moi, le secret est enfermé dans une maison aux solides cadenas dont la clé est perdue et la porte scellée." - Les mille et une nuits \\
+K = 2 \\
+CLE = "2023" \\
+\subsection{Exemple 3}
+Le message est "'snoçel sed ennod em no uq sruojuot sap emia n ej euq neib erdnerppa a terp sruojuot sius ej'" \\
+K = 4 \\
+CLE = "BYE" \\
+\end{document}
