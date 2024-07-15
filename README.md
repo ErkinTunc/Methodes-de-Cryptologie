@@ -43,13 +43,6 @@ This repository contains materials related to cryptographic methods, including r
 ## Requirements
 
 - Python 3.x
-- Additional Python libraries if any (specify in each script)
-
-## Usage
-
-### Caesar and Affine Cipher
-
-To use the Caesar and Affine cipher script:
 
 ```bash
 python codeCesarAffine.py
