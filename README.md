@@ -43,6 +43,3 @@ This repository contains materials related to cryptographic methods, including r
 ## Requirements
 
 - Python 3.x
-
-```bash
-python codeCesarAffine.py
