@@ -71,5 +71,3 @@ Applies a linear transformation to the numerical equivalent of each letter in th
 ## Requirements
 
 - Python 3.x
-
----
